@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Panel de administración</title></head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <h2>Respuestas Registradas</h2>
+    {% for nombre, respuestas in data.items() %}
+        <h3>{{ nombre }}</h3>
+        <ul>
+            {% for key, value in respuestas.items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <a href="/borrar?pw=admin">Borrar respuestas</a>
+</body>
+</html>

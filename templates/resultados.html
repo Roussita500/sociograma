@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>Resultados Sociograma</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Resultados por pregunta</h1>
+
+  {% for pregunta, resultados in resultados %}
+    <h3>{{ pregunta }}</h3>
+    <ol>
+      {% for nombre, puntos in resultados %}
+        <li>{{ nombre }}: {{ puntos }} puntos</li>
+      {% endfor %}
+    </ol>
+  {% endfor %}
+
+  <form method="GET" action="{{ url_for('grafo') }}">
+    <button type="submit">Ver Gráfica Relacional</button>
+  </form>
+
+  <a href="{{ url_for('index') }}">Volver al formulario</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Acceso a Resultados</title></head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <h2>Ingresar contraseña para ver resultados</h2>
+    {% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+    <form method="POST">
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
